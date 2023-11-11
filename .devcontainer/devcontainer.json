@@ -7,6 +7,9 @@
 	"dockerComposeFile": "../compose-dev.yaml",
 	"service": "app",
 	//"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+	],
 	"workspaceFolder": "/workspace/",
   	"shutdownAction": "stopCompose",
 
@@ -21,7 +24,7 @@
 	"forwardPorts": [
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install",
+	"postCreateCommand": "sudo chown node node_modules && pnpm install; git config --global --add safe.directory '/workspace'",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {

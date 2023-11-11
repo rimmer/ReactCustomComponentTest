@@ -2,7 +2,7 @@
 
 # [Choice] Node.js version: 16, 14, 12 (overriden in .devcontainer)
 ARG VARIANT="20"
-FROM mcr.microsoft.com/devcontainers/typescript-node:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/typescript-node:${VARIANT}
 
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
@@ -20,7 +20,9 @@ RUN apt-get update \
     jq \
     fonts-powerline \
     # set up locale
-    && locale-gen en_US.UTF-8 && fc-cache -vf
+    && locale-gen en_US.UTF-8 && fc-cache -vf \
+    # update pnpm
+    && npm install -g pnpm
 
 ENV DEBIAN_FRONTEND=dialog
 ENV SHELL=/bin/zsh
@@ -34,8 +36,9 @@ USER ${USER}
 ENV USER=${USER}
 ENV GROUP=${GROUP}
 
-# Install Oh-my-ZSH
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+# Set pnpm store dir in home dir instead of default workspace forlder.
+# This will allow pnpm to symlink to `node_modules` since `node_modules` is on the local volume and not shared
+RUN pnpm config set store-dir /home/${USER}/pnpm-store
 
 # Install powerlevel10k
 RUN git clone https://github.com/romkatv/powerlevel10k.git /home/${USER}/.oh-my-zsh/custom/themes/powerlevel10k
