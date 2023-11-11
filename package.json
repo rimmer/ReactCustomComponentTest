@@ -50,6 +50,8 @@
     "vite-tsconfig-paths": "4.2.1"
   },
   "dependencies": {
-    "framer-motion": "^10.16.4"
+    "@react-three/drei": "^9.88.13",
+    "framer-motion": "^10.16.4",
+    "framer-motion-3d": "^10.16.4"
   }
 }
