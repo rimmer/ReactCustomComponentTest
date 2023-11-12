@@ -4,14 +4,12 @@
 	"name": "Brandualist Site",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 
-	"dockerComposeFile": "../compose-dev.yaml",
-	"service": "app",
-	//"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"build": { "dockerfile": "Dockerfile" },
+	"workspaceFolder": "/workspace",
 	"mounts": [
+		"source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
 		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
 	],
-	"workspaceFolder": "/workspace/",
-  	"shutdownAction": "stopCompose",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
