@@ -8,11 +8,16 @@ import { qwikReact } from "@builder.io/qwik-react/vite";
 export default defineConfig(() => {
   return {
     plugins: [
-      builderDevTools(),
+      // builderDevTools(),
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
       qwikReact(),
     ],
+    server: {
+      watch: {
+        usePolling: true // we run inside WLS
+      }
+    }
   };
 });
