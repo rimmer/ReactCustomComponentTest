@@ -1,4 +1,5 @@
 import type { RegisteredComponent } from "@builder.io/sdk-qwik";
+import { QwikHeads } from "./3d/heads";
 
 /**
  * This array is used to integrate custom components within Builder.
@@ -11,14 +12,9 @@ import type { RegisteredComponent } from "@builder.io/sdk-qwik";
  * https://www.builder.io/c/docs/guides/components-only-mode
  */
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-  // {
-  //   component: Counter,
-  //   name: "Counter",
-  //   inputs: [
-  //     {
-  //       name: "initialValue",
-  //       type: "number",
-  //     },
-  //   ],
-  // },
+  {
+    component: QwikHeads,
+    name: "3D Heads",
+    inputs: [],
+  },
 ];
