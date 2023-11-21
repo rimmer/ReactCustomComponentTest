@@ -12,9 +12,10 @@ import { QwikHeads } from "./3d/heads";
  * https://www.builder.io/c/docs/guides/components-only-mode
  */
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-  {
-    component: QwikHeads,
-    name: "3D Heads",
-    inputs: [],
-  },
+  // TODO: Add 3D heads component
+  // {
+  //   component: QwikHeads,
+  //   name: "3D Heads",
+  //   inputs: [],
+  // },
 ];

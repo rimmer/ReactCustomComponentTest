@@ -8,7 +8,7 @@ import { qwikReact } from "@builder.io/qwik-react/vite";
 export default defineConfig(() => {
   return {
     plugins: [
-      // builderDevTools(),
+      builderDevTools(),
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
