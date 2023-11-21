@@ -1,9 +1,19 @@
 {
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "1.0.11",
-      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:464564228ccdd6028f01f8a62a3cfbaf76e9ba7953b29ac0e53ba2c262604312",
-      "integrity": "sha256:464564228ccdd6028f01f8a62a3cfbaf76e9ba7953b29ac0e53ba2c262604312"
+    "ghcr.io/devcontainers-contrib/features/pnpm:2": {
+      "version": "2.0.3",
+      "resolved": "ghcr.io/devcontainers-contrib/features/pnpm@sha256:303ec8fbde335250e7febfa8dab182957cea75dce3ac9ebb9029bedf70203cb2",
+      "integrity": "sha256:303ec8fbde335250e7febfa8dab182957cea75dce3ac9ebb9029bedf70203cb2"
+    },
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "version": "0.0.4",
+      "resolved": "ghcr.io/devcontainers-contrib/features/zsh-plugins@sha256:df477db6ecd0dd4b4a1d3434c627a06c783a0f1c3f64c68d69d2ecdf7a1c8196",
+      "integrity": "sha256:df477db6ecd0dd4b4a1d3434c627a06c783a0f1c3f64c68d69d2ecdf7a1c8196"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1.0.9": {
+      "version": "1.0.9",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:9024deeca80347dea7603a3bb5b4951988f0bf5894ba036a6ee3f29c025692c6",
+      "integrity": "sha256:9024deeca80347dea7603a3bb5b4951988f0bf5894ba036a6ee3f29c025692c6"
     }
   }
 }

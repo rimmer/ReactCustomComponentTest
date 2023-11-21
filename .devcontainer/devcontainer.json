@@ -4,7 +4,7 @@
 	"name": "Brandualist Site",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 
-	"build": { "dockerfile": "Dockerfile" },
+	"image": "mcr.microsoft.com/devcontainers/typescript-node",
 	"workspaceFolder": "/workspace",
 	"mounts": [
 		"source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
@@ -13,16 +13,20 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/github-cli:1": {
+		"ghcr.io/devcontainers/features/github-cli:1.0.9": {
 			"installDirectlyFromGitHubRelease": true,
 			"version": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/pnpm:2": {},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+			"omzPlugins": "" // TODO plugins
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown node node_modules && pnpm install; git config --global --add safe.directory '/workspace'",
+	"postCreateCommand": "pnpm config set store-dir /home/${USER}/pnpm-store; sudo chown node node_modules && pnpm install; git config --global --add safe.directory '/workspace'",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -41,7 +45,11 @@
 				"johnreemar.vscode-qwik-snippets",
 				"Builder.Builder",
 				"codezombiech.gitignore",
-				"KnisterPeter.vscode-commitizen"
+				"KnisterPeter.vscode-commitizen",
+				"github.vscode-github-actions",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"k--kato.intellij-idea-keybindings"
 			]
 		}
 	},
