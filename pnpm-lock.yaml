@@ -41,6 +41,9 @@ dependencies:
   maath:
     specifier: ^0.10.4
     version: 0.10.4(@types/three@0.158.3)(three@0.158.0)
+  qwik-lottie:
+    specifier: link:submodules/qwik-lottie
+    version: link:submodules/qwik-lottie
   react:
     specifier: 18.2.0
     version: 18.2.0
