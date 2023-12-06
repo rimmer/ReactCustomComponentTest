@@ -51,6 +51,7 @@
     "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "framer-motion": "^10.16.5",
+    "lottie-web": "^5.12.2",
     "maath": "^0.10.4",
     "qwik-lottie": "link:libs/qwik-lottie",
     "react": "18.2.0",

@@ -3,13 +3,13 @@ import { QwikLottie } from 'qwik-lottie';
 import AnimationData from '../../../public/Loading-animation.json'
 
 export default component$(() => {
-  const defaultOptions  = useStore({
-    animationData: AnimationData      
-      //path: '../../../public/Loading-animation.json',
-  });
+  // const defaultOptions  = useStore({
+  //   animationData: AnimationData      
+  //     //path: '../../../public/Loading-animation.json',
+  // });
   return (
       <div>
-          <QwikLottie options={defaultOptions} />
+          <QwikLottie animationData={AnimationData} />
       </div>
   );
 });
