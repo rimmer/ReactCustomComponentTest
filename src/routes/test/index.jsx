@@ -4,7 +4,16 @@ import TestStyles from './test.css?inline'
 import { component$, useVisibleTask$, useSignal, noSerialize } from '@builder.io/qwik';
 import lottie from 'lottie-web';
 
-
+function initLoopedSegment(animation, startFrame, endFrame) {
+  animation.addEventListener('drawnFrame', (event) => {
+    const frame = Math.round(event.currentTime)
+    if (frame >= endFrame) {        
+      animation.setDirection(-1)
+    } else if (frame == startFrame) {        
+      animation.setDirection(1)
+    }
+  })
+}
 
 export default component$(() => {
   useStyles$(TestStyles)
@@ -12,27 +21,19 @@ export default component$(() => {
   const store = useStore({
     anim: noSerialize({}),
   });
-  const canvas = useSignal();
-
+  const canvas = useSignal();  
   useVisibleTask$(() => {
     let animation = store.anim = noSerialize(
       lottie.loadAnimation({
         container: canvas.value,
-        loop:  true,
-        autoplay:  false,
+        loop: false,
+        autoplay: true,
         path: '/Loading-animation.json',
 
       })
     );
-    // eventlistener loop 
-   
-animation.addEventListener("loop", () => {
-  console.log("You've captured the ready event!");
-});
-      animation.playSegments([0, 82], false);
-      animation.setDirection(-1)
-      animation.playSegments([82,0], false)
 
+    initLoopedSegment(animation, 36, 100)
   });
 
   return (
