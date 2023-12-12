@@ -5,7 +5,8 @@ import { builderDevTools } from "@builder.io/dev-tools/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { qwikReact } from "@builder.io/qwik-react/vite";
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const isDevelopmentMode = mode === 'development';
   return {
     plugins: [
       builderDevTools(),
@@ -16,8 +17,13 @@ export default defineConfig(() => {
     ],
     server: {
       watch: {
-        usePolling: true // we run inside WLS
+        usePolling: true, // we run inside WLS
+        interval: 2000,
+        binaryInterval: 5000,
       }
+    },
+    build: {
+      sourcemap: isDevelopmentMode
     }
   };
 });
