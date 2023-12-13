@@ -38,6 +38,9 @@ dependencies:
   framer-motion:
     specifier: ^10.16.5
     version: 10.16.5(react-dom@18.2.0)(react@18.2.0)
+  lottie-web:
+    specifier: ^5.12.2
+    version: 5.12.2
   maath:
     specifier: ^0.10.4
     version: 0.10.4(@types/three@0.158.3)(three@0.158.0)
@@ -2695,6 +2698,10 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /lottie-web@5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
     dev: false
 
   /lru-cache@6.0.0:
