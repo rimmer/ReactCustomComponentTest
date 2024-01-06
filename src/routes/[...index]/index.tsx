@@ -18,7 +18,11 @@ export const useBuilderContent = routeLoader$(async ({ url, error }) => {
   const builderContent = await fetchOneEntry({
     model: BUILDER_MODEL,
     apiKey: import.meta.env.PUBLIC_BUILDER_API_KEY,
-    options: getBuilderSearchParams(url.searchParams),
+    options: {
+      ...getBuilderSearchParams(url.searchParams),
+      // Include unpublished content if in dev mode
+      includeUnpublished: import.meta.env.DEV
+    },
     userAttributes: {
       urlPath: url.pathname,
     },
