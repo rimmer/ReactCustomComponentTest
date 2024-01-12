@@ -1,15 +1,14 @@
 import { defineConfig } from "vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
-import { builderDevTools } from "@builder.io/dev-tools/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { qwikReact } from "@builder.io/qwik-react/vite";
+import isWsl from 'is-wsl';
 
 export default defineConfig(({ mode }) => {
   const isDevelopmentMode = mode === 'development';
   return {
     plugins: [
-      builderDevTools(),
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
@@ -17,7 +16,7 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       watch: {
-        usePolling: true, // we run inside WLS
+        usePolling: isWsl, // use polling if we run inside WSL
         interval: 2000,
         binaryInterval: 5000,
       }
