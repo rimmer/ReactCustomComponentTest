@@ -30,7 +30,7 @@ export const useBuilderContent = routeLoader$(async ({ url, error }) => {
 
   // If there's no content, throw a 404.
   // You can use your own 404 component here
-  if (!builderContent && !isPreviewing) {
+  if (!builderContent && !isPreviewing && !import.meta.env.DEV) {
     throw error(404, "Page not found");
   }
   // return content fetched from Builder, which is JSON
