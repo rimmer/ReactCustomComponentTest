@@ -1,5 +1,4 @@
 import type { RegisteredComponent } from "@builder.io/sdk-qwik";
-import { QGreetings } from "~/integrations/react/test";
 
 /**
  * This array is used to integrate custom components within Builder.
@@ -11,10 +10,4 @@ import { QGreetings } from "~/integrations/react/test";
  * editing to only these components.
  * https://www.builder.io/c/docs/guides/components-only-mode
  */
-export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-  {
-    component: QGreetings,
-    name: "QGreetings",
-    inputs: [],
-  },
-];
+export const CUSTOM_COMPONENTS: RegisteredComponent[] = [];
